@@ -7,7 +7,7 @@ image: /assets/posts/ShunyaCTF/0.png
 ---
 ![1](/assets/posts/ShunyaCTF/1.png)
 
-Hello again, We’ll look at some of the challenges from **ShunyaCTF Aarambha Finals.** We, **`H7Tex`** got placed 8th overall. Congratulations to all Finalists. Really had a wonderful trip to Pune. Candid moment at the end : )
+Hello again, We’ll look at some of the challenges from **ShunyaCTF Aarambha Finals.** We, **`H7Tex`** got placed 8th overall. Congratulations to all Finalists. Really had a wonderful trip to Pune. Candid moment at the end.
 
 First of all let’s address the elephant in the room. **Trust Issues**, which was the assigned the highest points with 1000. Looking at it now, it most definitely is solvable with proper enumeration which, we too missed in the first place haha.
 
