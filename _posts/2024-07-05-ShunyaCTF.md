@@ -158,7 +158,7 @@ This is why it's important to make sure only trusted people are in the LXD/LXC g
 
 Here’s `Rohmat’s` write-up for Privilege Escalation. Check it out at 
 
-[Trust issues ShunyaCTF | ShunyaCTF Final 2024 | TryHackMe Box](https://hackctfs.blogspot.com/2024/07/trust-issues-shunyactf-shunyactf-2024.html)
+[Trust issues ShunyaCTF](https://hackctfs.blogspot.com/2024/07/trust-issues-shunyactf-shunyactf-2024.html)
 
 Privilege Escalation
 
@@ -260,44 +260,8 @@ aalu@aalu-center:~$ find / -type f -perm -4000 2>/dev/null
 /usr/bin/pkexec
 /usr/bin/at
 /usr/bin/mount
-/usr/bin/newgrp
-/usr/bin/umount
-/usr/bin/fusermount
-/usr/bin/chsh
-/usr/bin/su
-/usr/bin/gpasswd
-/usr/bin/sudo
-/usr/lib/eject/dmcrypt-get-device
-/usr/lib/policykit-1/polkit-agent-helper-1
-/usr/lib/openssh/ssh-keysign
-/usr/lib/snapd/snap-confine
-/usr/lib/authbind/helper
-/usr/lib/dbus-1.0/dbus-daemon-launch-helper
 `/usr/local/bin/womp`
-/snap/core20/1828/usr/bin/chfn
-/snap/core20/1828/usr/bin/chsh
-/snap/core20/1828/usr/bin/gpasswd
-/snap/core20/1828/usr/bin/mount
-/snap/core20/1828/usr/bin/newgrp
-/snap/core20/1828/usr/bin/passwd
-/snap/core20/1828/usr/bin/su
-/snap/core20/1828/usr/bin/sudo
-/snap/core20/1828/usr/bin/umount
-/snap/core20/1828/usr/lib/dbus-1.0/dbus-daemon-launch-helper
-/snap/core20/1828/usr/lib/openssh/ssh-keysign
-/snap/core20/2318/usr/bin/chfn
-/snap/core20/2318/usr/bin/chsh
-/snap/core20/2318/usr/bin/gpasswd
-/snap/core20/2318/usr/bin/mount
-/snap/core20/2318/usr/bin/newgrp
-/snap/core20/2318/usr/bin/passwd
-/snap/core20/2318/usr/bin/su
-/snap/core20/2318/usr/bin/sudo
-/snap/core20/2318/usr/bin/umount
-/snap/core20/2318/usr/lib/dbus-1.0/dbus-daemon-launch-helper
-/snap/core20/2318/usr/lib/openssh/ssh-keysign
-/snap/snapd/18357/usr/lib/snapd/snap-confine
-/snap/snapd/21759/usr/lib/snapd/snap-confine
+<Other SUID>
 ```
 
 that `womp` SUID is the culprit. Seem like we can run python from it.
