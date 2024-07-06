@@ -289,6 +289,101 @@ shunyaCTF{1_10v3_h0n3y}
 
 **Flag**: `shunyaCTF{1_10v3_h0n3y}`
 
+## OSINT
+
+### Dr. Homofomo
+
+**Description:** Hey Detective, Dr. HOMOFOMO, a cryptologist, has gone underground after discovering a illegal encryption technique. Rumour has it, he’s left a digital trail that leads to his hidden online journal, which contains the secret formula. I've heard you’re good with finding things online. Your mission is to find the journal and uncover the secret.
+
+**Given**: `homesweethome.pdf`
+
+**Author**: Aaryan Varale
+
+After opening the PDF, you could see hidden text written at the top. I think about going into Google Lens, but that yielded nothing. `exiftool` gave two keywords - `DAGJf30TiCQ BAE8csRKboE.`
+
+Which I had no clue whatsoever. Well if you look really closely.
+
+![14](/assets/posts/ShunyaCTF/14.png)
+
+We get a `v41bhx` , seems like a username! Let’s run it on 
+
+[](https://whatsmyname.app/)
+
+But be warned, there are so many rabbit holes in this challenge. Props to the Author.
+We find a YouTube user with the same username.
+
+![15](/assets/posts/ShunyaCTF/15.png)
+
+![16](/assets/posts/ShunyaCTF/16.png)
+
+That reveals another username `VAIBHAV13`. 
+
+But there’s nothing here. Looking up the `v41bhx` on Discord. We find `FEL1X` , one of the ShunyaCTF organizers, cool guy irl. 
+
+![17](/assets/posts/ShunyaCTF/17.png)
+
+![17](/assets/posts/ShunyaCTF/17-5.png)
+
+We finds two twitter accounts. One with same name as the challenge description.
+
+![18](/assets/posts/ShunyaCTF/18.png)
+
+The other one is a dupe. But still, `FEL1X` bhai, what is this behavior.
+
+![19](/assets/posts/ShunyaCTF/19.png)
+
+In the `@fullmoonFOMO` account, we find an unlisted YouTube video. 
+
+```bash
+HOMOFOMO
+@fullmoonFOMO
+·
+Jun 29
+https://youtu.be/jO-YaOoI7KI
+want a hint ? 
+ Why do I love coffee? It's my daily upgrade from glitchy NPC to main character, 
+ hitting "refresh" on my brain and giving me the cheat code for adulting. 
+ Coffee is the OG "glow up" in a cup. yk what that means, im just eating up your time😭
+```
+
+If we watch the full video, we find 2 QR links. At these timestamps. One is a dupe that takes you down a different rabbit hole. I ain’t going thorough that pain again. @12:24 in the video, we find this, 
+
+![20](/assets/posts/ShunyaCTF/20.png)
+
+Scanning gives you a password locked google forms. Author has disabled the link. But I saved the link haha. You just type the password as password, as hinted in the last frame of the video. You get the Flag !
+
+[DR. HOMOFOMO](https://docs.google.com/forms/d/e/1FAIpQLSfX1NuQy71RhmOHR2INLUU1EPej2iyfO9Zrv_rCL1vKPa5Cfw/viewform?fbzx=6747858405585866679)
+
+![21](/assets/posts/ShunyaCTF/21.png)
+
+**Flag: `0CTF{H0MofOmO_Nev3R_3xi5sted}`**
+
+### Math?
+
+**Description**: Oh gosh, I'm trapped in this boring college, no fun, no clubs, just endless boring-fests. and yea I adore square millimeters, my university's vibes stat! Someone teleport me outta here! I miss my college (MIT-ADT) and those epic memories. I wish this college was as big as my previous one. Oh wait, how big was it? My STML (Short Term Memory Loss) always gets me. Help me fast! and yea I adore square millimeters—they never lie ❤
+
+**Given: A locked `PasteBin` Link**
+
+**Author: FEL1X**
+
+![22](/assets/posts/ShunyaCTF/22.png)
+
+Don’t mind the error on top LOL, but it looks something like this.
+
+So answer to this first locked **pastebin** was `505857052800`.  Which gave us another locked pastebin and a riddle. Which hinted on Crimson Badges, giving us the answer as `REDHATHACKER`. Issues with the formatting. And that gave us the flag.
+
+### Cosmic Conversion
+
+**Description**: So, I had the pleasure of interning at NASA as a cosmic researcher. I trust it as hell , it's out of this world! anyways!!! Do you think OSINT challenges are just piece of cake? Prove you're not lost in space! Which of the celestial wonders is the nearest to our little blue planet? But beware, don’t even think about whipping , Forget parsecs—only Astronomical Units matter.—there’s only one measure that the cosmos recognizes. This flag entry is fishier than a neutron star is dense, so nail that integer distance precisely, or you'll get sucked into a galaxy of RABBIT HOLES! 🕳🐇
+
+Flag format : 0CTF{onlynumbers}
+
+Ex. 0ctf{2370837283728739273}
+
+![23](/assets/posts/ShunyaCTF/23.png)
+
+Shout-out to `MrGhost` for getting first blood on this challenge. Ping him on Discord to get the solution.
+
 Here's a candid !
 
 ![14](/assets/posts/ShunyaCTF/14.jpg)
