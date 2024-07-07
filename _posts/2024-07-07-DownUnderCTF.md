@@ -181,7 +181,94 @@ Host: 172.16.17.135
 **Flag**: `DUCTF{Nikto_2.1.6}`
 
 
+### **SAM I AM**
 
+**Description:** 
+
+The attacker managed to gain Domain Admin on our rebels Domain Controller! Looks like they managed to log on with an account using WMI and dumped some files.
+
+Can you reproduce how they got the Administrator's Password with the artifacts provided?
+
+Place the Administrator Account's Password in `DUCTF{}`, e.g. `DUCTF{password123!}`
+
+**Author**: TurboPenguin
+
+Given: `samiam.zip`
+
+Unzipping the file, we get a `system.bak` and `sam.bak`
+
+```bash
+┌──(abu㉿Abuntu)-[/mnt/c/Documents4/CyberSec/DUCTF/forensics]
+└─$ unzip samiam.zip
+Archive:  samiam.zip
+  inflating: samiam/sam.bak
+  inflating: samiam/system.bak
+```
+
+Since, I had experience with SAM registry files. This time  the SYSTEM file was also provided. Went straight to `samdump2`
+
+```bash
+┌──(abu㉿Abuntu)-[/mnt/c/Documents4/CyberSec/DUCTF/forensics/samiam]
+└─$ samdump2 system.bak sam.bak
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:476b4dddbbffde29e739b618580adb1e:::
+*disabled* Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+```
+
+Using `crackstation`, we crack the NTLM hash.
+
+![5](/assets/posts/DownUnderCTF/5.png)
+
+**Flag**: `DUCTF{!checkerboard1}`
+
+## OSINT
+
+### offtheramp
+
+**Description**: 
+
+That looks like a pretty cool place to escape by boat, EXAMINE the image and discover the name of this structure.
+
+NOTE: Flag is case-insensitive and requires placing inside `DUCTF{}`! e.g `DUCTF{name_of_structure}`
+
+**Author**: Anon
+
+Given: `offtheramp.jpg`
+
+![6](/assets/posts/DownUnderCTF/6.jpeg)
+
+Been using an AI called `picarta` , to help narrow down photos for OSINT.
+
+![7](/assets/posts/DownUnderCTF/7.png)
+
+Now, this gave me a straight hit. Damn.
+
+![8](/assets/posts/DownUnderCTF/8.png)
+
+**Flag**: `DUCTF{olivers_hill_boat_ramp}`
+
+### **cityviews**
+
+**Description**: 
+
+After having to go on the run, I've had to bunker down. Which building did I capture this picture from?
+
+NOTE: Flag is case-insensitive and requires placing inside `DUCTF{}`! e.g `DUCTF{building_name}`
+
+**Author**: Anon
+
+**Given**: `cityviews.jpg`
+
+Turns out, we still in Melbourne.
+
+![9](/assets/posts/DownUnderCTF/9.png)
+
+First, I found the source, by playing around with google lens.
+
+![10](/assets/posts/DownUnderCTF/10.png)
+
+Found this image, and then narrowed down.
+
+**Flag: `DUCTF{hotel_indigo}`**
 
 
 
