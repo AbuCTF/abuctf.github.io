@@ -9,7 +9,7 @@ image: /assets/posts/DownUnderCTF/0.png
 Well, now and then, we come across a big CTF like this. Starting out late, let’s see how it goes.
 
 ```bash
-Authors: AbuCTF, MrRobot, SHL
+Authors: AbuCTF, MrRobot, SHL, MrGhost, PattuSai, Rohmat
 ```
 
 ## **Beginner**
@@ -220,6 +220,48 @@ Using `crackstation`, we crack the NTLM hash.
 
 **Flag**: `DUCTF{!checkerboard1}`
 
+### **Bad Policies**
+
+**Description**: 
+
+Looks like the attacker managed to access the rebels Domain Controller.
+
+Can you figure out how they got access after pulling these artifacts from one of our Outpost machines?
+
+**Author**: TurboPenguin
+
+**Given**: `badpolicies.zip`
+
+Get familiar with the directories and files. Especially, Group Policy Preferences (GPP) configurations.
+
+One such example is the one at `\badpolicies\rebels.ductf\Policies\{B6EF39A3-E84F-4C1D-A032-00F042BE99B5}\Machine\Preferences\Groups\Groups.xml`
+
+```bash
+┌──(abu㉿Abuntu)-[/mnt/c/Documents4/CyberSec/DUCTF/forensics/badpolicies/rebels.ductf/Policies/{B6EF39A3-E84F-4C1D-A032-00F042BE99B5}/Machine/Preferences/Groups]
+└─$ cat Groups.xml
+<?xml version="1.0" encoding="utf-8"?>
+<Groups clsid="{3125E937-EB16-4b4c-9934-544FC6D24D26}">
+<User clsid="{DF5F1855-51E5-4d24-8B1A-D9BDE98BA1D1}" 
+name="Backup" image="2" changed="2024-06-12 14:26:50" 
+uid="{CE475804-94EA-4C12-8B2E-2B3FFF1A05C4}">
+<Properties action="U" newName="" fullName="" description="" 
+cpassword="B+iL/dnbBHSlVf66R8HOuAiGHAtFOVLZwXu0FYf+jQ6553UUgGNwSZucgdz98klzBuFqKtTpO1bRZIsrF8b4Hu5n6KccA7SBWlbLBWnLXAkPquHFwdC70HXBcRlz38q2" 
+changeLogon="0" noChange="1" neverExpires="1" acctDisabled="0" userName="Backup"/></User>
+</Groups>
+```
+
+This gives us a GPP Password. Note: The presence of the `cpassword` attribute indicates an encrypted password. However, it is known that the encryption method used by GPP is weak and reversible, meaning an attacker could potentially decrypt the password if they gained access to this XML file. 
+
+Use a tool called `gpp-decrypt` to decrypt the password.
+
+```bash
+┌──(abu㉿Abuntu)-[/mnt/c/Documents4/CyberSec/DUCTF/forensics/badpolicies/rebels.ductf/Policies/{B6EF39A3-E84F-4C1D-A032-00F042BE99B5}/Machine/Preferences/Groups]
+└─$ gpp-decrypt B+iL/dnbBHSlVf66R8HOuAiGHAtFOVLZwXu0FYf+jQ6553UUgGNwSZucgdz98klzBuFqKtTpO1bRZIsrF8b4Hu5n6KccA7SBWlbLBWnLXAkPquHFwdC70HXBcRlz38q2
+DUCTF{D0n7_Us3_P4s5w0rds_1n_Gr0up_P0l1cy}
+```
+
+**Flag**:  `DUCTF{D0n7_Us3_P4s5w0rds_1n_Gr0up_P0l1cy}`
+
 ## OSINT
 
 ### offtheramp
@@ -234,11 +276,11 @@ NOTE: Flag is case-insensitive and requires placing inside `DUCTF{}`! e.g `DUC
 
 Given: `offtheramp.jpg`
 
-![6](/assets/posts/DownUnderCTF/6.jpeg)
+<img src="/assets/posts/DownUnderCTF/6.jpeg" alt="p4" width="40%"/>
 
 Been using an AI called `picarta` , to help narrow down photos for OSINT.
 
-![7](/assets/posts/DownUnderCTF/7.png)
+<img src="/assets/posts/DownUnderCTF/7.png" alt="p4" width="60%"/>
 
 Now, this gave me a straight hit. Damn.
 
@@ -264,13 +306,77 @@ Turns out, we still in Melbourne.
 
 First, I found the source, by playing around with google lens.
 
-![10](/assets/posts/DownUnderCTF/10.png)
+<img src="/assets/posts/DownUnderCTF/10.png" alt="p4" width="50%"/>
 
 Found this image, and then narrowed down.
 
 **Flag: `DUCTF{hotel_indigo}`**
 
+### **Bridget Lives**
 
+**Description**: 
+
+After dropping numerous 0days last year Bridget has flown the coop. This is the last picture she posted before going dark. Where was this photo taken from?
+
+**NOTE**: Flag is case-insensitive and requires placing inside `DUCTF{}`! e.g. `DUCTF{name_of_building}`
+
+**Author**: a_metre
+
+Given: `bridget.png`
+
+<img src="/assets/posts/DownUnderCTF/11.png" alt="p4" width="70%"/>
+
+After a simple google, we land on Singapore. We find the bridge pretty easily.
+
+![12](/assets/posts/DownUnderCTF/12.png)
+
+**Flag**: `DUCTF{four_points}`
+
+### **marketing**
+
+**Description**: We have the best marketing team!
+
+Except for that one monke that looks like they slapped something together...
+
+Maybe the bot should lock away that monke to stopping posting stuff online. The other animals should be free, just not the monke.
+
+**Author**: ghostccamm
+
+Typical OSINT type stuff, go straight to the Discord server for clues. Found em!
+
+![13](/assets/posts/DownUnderCTF/13.png)
+
+With that, we find the username `ghostccamm`. Turns out he uses Twitter with the same username.
+
+![14](/assets/posts/DownUnderCTF/14.png)
+
+Look closely.
+
+**Flag**: `DUCTF{doing_a_bit_of_marketing}`
+
+Wait, I found this flag is actually for the **marketing challenge LOL. I’ll just edit the title then.**
+
+### **back to the jungle**
+
+**Description:** 
+
+Did MC Fat Monke just drop a new track????? 👀👀👀
+
+**Author**: ghostccamm
+
+Just google MC Fat Monke.
+
+![15](/assets/posts/DownUnderCTF/15.png)
+
+Watch the video with eyes open. @2:34, we see a link.
+
+```bash
+average-primate-th.wixsite.com/mc-fat-monke-appreci
+```
+
+![16](/assets/posts/DownUnderCTF/16.png)
+
+Flag: `DUCTF{wIr_G0iNg_b4K_t00_d3r_jUNgL3_mIt_d15_1!!111!}`
 
 
 
