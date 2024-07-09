@@ -297,7 +297,7 @@ shunyaCTF{1_10v3_h0n3y}
 
 **Given**: `homesweethome.pdf`
 
-**Author**: Aaryan Varale
+**Author**: Vaibhav Gawai [`FEL1X`]
 
 After opening the PDF, you could see hidden text written at the top. I think about going into Google Lens, but that yielded nothing. `exiftool` gave two keywords - `DAGJf30TiCQ BAE8csRKboE.`
 
