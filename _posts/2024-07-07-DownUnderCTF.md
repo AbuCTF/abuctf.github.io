@@ -602,5 +602,16 @@ This is how I felt after the challenge.
 
 <img src="/assets/posts/DownUnderCTF/22.png" alt="p4" width="70%"/>
 
+## References
+
+[Checksec](https://medium.com/@slimm609/checksec-d4131dff0fca)
+
+[High level explanation on some binary executable security](https://blog.siphos.be/2011/07/high-level-explanation-on-some-binary-executable-security/)
+
+[DownUnderCTF 2024 Write-Up · Ouuan's blog](https://ouuan.moe/post/2024/07/ductf-2024#yawa-184-solves)
+
+[Identify security properties on Linux using checksec](https://opensource.com/article/21/6/linux-checksec)
+
+[GDB Command Reference - Index page](https://visualgdb.com/gdbreference/commands/)
 
 ![Continue](/assets/posts/PrivEscalation/continue.jpg)

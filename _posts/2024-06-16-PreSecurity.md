@@ -650,7 +650,7 @@ This shield icon is an indicator that UAC will prompt to allow higher-level pr
 
 Double-click the program, and you'll see the UAC prompt. Notice that the built-in administrator account is already set as the user name and prompts the account's password. See below.
 
-![p15](/assets/posts/PreSecurity/p15.png)
+<img src="/assets/posts/PreSecurity/p15.png" alt="p15-5" width="40%"/>
 
 After some time, if a password is not entered, the UAC prompt disappears, and the program does not install.
 
@@ -1399,7 +1399,7 @@ Tells the web server what types of compression methods the browser supports so t
 
 **Cookie:** 
 
-Data sent to the server to help remember your information (see cookies task for more information).
+Data sent to the server to help remember your information.
 
 **Common Response Headers**
 
@@ -1407,7 +1407,7 @@ These are the headers that are returned to the client from the server after a re
 
 **Set-Cookie:** 
 
-Information to store which gets sent back to the web server on each request (see cookies task for more information).
+Information to store which gets sent back to the web server on each request.
 
 **Cache-Control:** 
 
