@@ -12,7 +12,7 @@ Hello again, We’ll look at some of the challenges from **ShunyaCTF Aarambha Fi
 First of all let’s address the elephant in the room. **Trust Issues**, which was the assigned the highest points with 1000. Looking at it now, it most definitely is solvable with proper enumeration which, we too missed in the first place haha.
 
 ```jsx
-Authors: AbuCTF, Rohmat, MrGhost, MrRobot, PattuSai
+Authors: AbuCTF, Rohmat, MrGhost, MrRobot
 ```
 
 ## Miscellaneous
