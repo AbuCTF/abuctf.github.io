@@ -14,3 +14,6 @@ end
 
 
 gem "webrick", "~> 1.8"
+
+gem 'wdm', '>= 0.1.0', platforms: [:mswin, :mingw, :x64_mingw]
+
