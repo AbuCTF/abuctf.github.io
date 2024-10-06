@@ -927,7 +927,7 @@ Author: **`SHL`**
 Given: `QRco.jpg`
 In this challenge, you are presented with a **QR code** that leads to a Google Drive link containing a **PDF** with a list of numbered entries, each associated with random strings of letters and symbols. Additionally, **ArUco markers** are embedded within the QR code image, making them visually apparent. You must extract these ArUco markers, find their IDs, and then use the PDF to map the corresponding letters. These letters, when assembled, form a **Base64 string**, which, when decoded, reveals the flag.
 
-### Walkthrough:
+**Walkthrough**:
 
 **Step 1: Scanning the QR Code**:
 
