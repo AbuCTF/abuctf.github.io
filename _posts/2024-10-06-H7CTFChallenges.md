@@ -168,7 +168,7 @@ Other normal stuff, like strings, binwalk and when you run it. It seems it’s a
 
 Let’s move on to this, interesting tool which hides messages in x86 programs using semantic duals.
 
-https://github.com/woodruffw/steg86
+[Steg86](https://github.com/woodruffw/steg86)
 
 ```bash
 cargo install steg86
@@ -831,7 +831,7 @@ In the comments of the Profile Repo, there is another hint for the challenge.
 
 In the first commit of the Profile Repository there is a comment. But like I said, there are so many ways to solve this. LinkedIn, Lichess, people basically dug up my whole life for this challenge LOL. Scary AF.
 
-https://github.com/AbuCTF/AbuCTF/commit/d6bd8d9aae096af14fd63ec2ad314f6ec6692745
+[Commit Link](https://github.com/AbuCTF/AbuCTF/commit/d6bd8d9aae096af14fd63ec2ad314f6ec6692745)
 
 ![14](../assets/posts/H7CTFChalls/14.png)
 
