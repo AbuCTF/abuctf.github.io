@@ -156,7 +156,7 @@ We can apply the conversation as a filter as follows.
 
 Which corresponds to the `ip.addr==192.168.1.100 && udp.port==5000 && ip.addr==192.168.1.200` or a much simpler `udp.stream eq 24` filter in Wireshark.
 
-![image.png](4abe458e-ad53-4a82-b109-78d4cc1ea59f.png)
+![image.png](/assets/posts/InfoSecCTF/4abe458e-ad53-4a82-b109-78d4cc1ea59f.png)
 
 Here, we see a total of 9 UDP packets with varying lengths, let’s follow the UDP stream to look at what data is exchanged between them.
 
@@ -214,7 +214,7 @@ Like the title and description suggests we need to fix the given PNG image which
 
 Fixing the magic numbers of the PNG header referring to the following site, one of the go-to for checking file signatures, as you can see every byte in the header has been swapped, just revert it to fix the image.
 
-[](https://asecuritysite.com/forensics/png)
+[ASecurity](https://asecuritysite.com/forensics/png)
 
 ```bash
 └─$ xxd flag.png | head
