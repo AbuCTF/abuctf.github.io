@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="container py-5">
+    <h1 class="text-center mb-4">{{ .Title }}</h1>
+    <p class="text-center text-muted mb-5">{{ .Description }}</p>
+
+    <div class="row justify-content-center">
+        {{ range .Pages }}
+        <div class="col-md-4 col-sm-6 mb-4">
+            <a href="{{ .RelPermalink }}" class="card h-100 shadow-sm text-decoration-none text-dark">
+                <div class="card-body d-flex flex-column justify-content-center text-center">
+                    <h5 class="card-title mb-2">{{ .Title }}</h5>
+                    {{ with .Params.description }}
+                    <p class="card-text text-muted small">{{ . }}</p>
+                    {{ end }}
+                </div>
+            </a>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

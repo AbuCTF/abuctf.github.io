@@ -1,0 +1,29 @@
+baseURL = 'https://abuctf.github.io/'
+languageCode = 'en-us'
+title = 'Abu'
+contentDir = 'content'
+enableEmoji = true
+
+[module]
+  [[module.imports]]
+    path = "github.com/colinwilson/lotusdocs"
+  [[module.imports]]
+    path = "github.com/gohugoio/hugo-mod-bootstrap-scss/v5"
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 3
+    startLevel = 1
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.goldmark.parser.attribute]
+    block = true
+
+[params.docs]
+darkMode = true
+
+[permalinks]
+docs = "/docs/:sections/:slug/"
+
+[params.landing]
+enable = false
