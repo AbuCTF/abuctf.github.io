@@ -1,4 +1,4 @@
-baseURL = 'https://abuctf.github.io/'
+baseURL = 'https://abu.h7tex.com/'
 languageCode = 'en-us'
 title = 'Abu'
 contentDir = 'content'
