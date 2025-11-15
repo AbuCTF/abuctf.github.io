@@ -1,5 +1,5 @@
 ---
-title: "H7CTFInfra"
+title: "H7CTF'24 Infrastructure"
 description: "Migrated from Astro"
 icon: "article"
 date: "2024-09-29"
