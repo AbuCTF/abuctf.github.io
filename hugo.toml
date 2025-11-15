@@ -23,7 +23,10 @@ enableEmoji = true
 darkMode = true
 
 [permalinks]
-docs = "/docs/:sections[1:]/:title/"
+  [permalinks.page]
+    docs = "/docs/:sections[1:]/:slug/"
+  [permalinks.section]
+    docs = "/docs/:sections[1:]/"
 
 [params.landing]
 enable = false
