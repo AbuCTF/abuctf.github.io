@@ -35,7 +35,7 @@ jobs:
         sudo dpkg -i hugo.deb
 
     - name: Build site
-      run: hugo --gc --minify --baseURL="${{ steps.pages.outputs.base_url }}/"
+      run: hugo --gc --minify
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3

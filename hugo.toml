@@ -1,4 +1,4 @@
-baseURL = 'https://abu.h7tex.com/'
+baseURL = 'https://www.abu.rocks/'
 languageCode = 'en-us'
 title = 'Abu'
 contentDir = 'content'
