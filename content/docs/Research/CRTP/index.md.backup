@@ -1,4 +1,4 @@
-﻿---
+---
 title: "PayatuCTF"
 description: "C-Mobile"
 icon: "article"
@@ -17,7 +17,7 @@ Date: 10-12-2025
 
 The `CRTP` exam simulates a realistic Active Directory penetration test where I started with standard user credentials on a domain-joined workstation (`studvm`) in the `tech.corp` domain and had to work my way up to Domain Admin access across a five-machine environment. This report documents the complete attack chain I executed, beginning with initial reconnaissance and credential discovery, then leveraging Resource-Based Constrained Delegation (`RBCD`) to compromise the management server (`mgmtsrv`), dumping credentials with Mimikatz to pivot to additional systems (`techsrv30`, `adminsrv86`), and finally exploiting Active Directory Certificate Services (`ADCS`) misconfigurations through `ESC3` enrollment agent abuse to authenticate as the domain administrator and gain full control of the domain controller. Each step built on the previous compromise, demonstrating how attackers chain together common AD misconfigurations and privilege escalation techniques to systematically elevate from a low-privileged user to complete domain dominance, showcasing practical red team skills in Kerberos ticket manipulation, lateral movement, and certificate-based authentication attacks in a real-world enterprise scenario.
 
-{{< figure src="image.png" alt="image" >}}
+![image.png](image.png)
 
 ### STUDVM
 
@@ -57,7 +57,7 @@ Mode                 LastWriteTime         Length Name
 
 **Username**: `studentadmin` (local account)
 
-{{< figure src="image 1.png" alt="image 1" >}}
+![image.png](image%201.png)
 
 ```xml
 PS C:\Windows\system32> whoami
@@ -105,7 +105,7 @@ Sysinternals - www.sysinternals.com
 
 on `nt authority\system` shell.
 
-{{< figure src="645bcae1-3471-4bbf-9a6c-6c2adbf6708a.png" alt="645bcae1-3471-4bbf-9a6c-6c2adbf6708a" >}}
+![image.png](645bcae1-3471-4bbf-9a6c-6c2adbf6708a.png)
 
 ```xml
 PS C:\Users\studentuser\Desktop> powershell -ep bypass
@@ -137,7 +137,7 @@ With RBCD configured, I could now leverage the Kerberos S4U2Self and S4U2Proxy e
 
 With the techadmin service ticket injected into my session using `/ptt` (pass-the-ticket), I was able to establish a PowerShell remoting session to mgmtsrv using `Enter-PSSession -ComputerName mgmtsrv.tech.corp`, and when I ran `whoami`, it confirmed I was successfully operating as tech\techadmin, the Domain Admin account. This completely bypassed the need to know techadmin's actual password, I simply abused the delegation trust I had configured combined with studvm$'s machine account hash to impersonate the most privileged user in the domain and gain full administrative access to mgmtsrv.
 
-{{< figure src="image 2.png" alt="image 2" >}}
+![image.png](image%202.png)
 
 Install AD DS + AD Tools (Windows Server)
 
@@ -678,7 +678,7 @@ tech\techadmin
 [mgmtsrv.tech.corp]: PS C:\Users\techadmin\Documents>
 ```
 
-{{< figure src="image 3.png" alt="image 3" >}}
+![image.png](image%203.png)
 
 ### TechSRV30
 
@@ -686,7 +686,7 @@ Now that I had Domain Admin access on mgmtsrv through the RBCD attack, I started
 
 With the techservice NTLM hash in hand, I headed back to studvm and used Rubeus to request a TGT for this service account using pass-the-hash authentication, then injected the ticket into my current session with the `/ptt` flag. Looking at the ticket details, techservice had a valid TGT that would work for the next ten hours, and based on the service account naming convention (techservice) and my earlier reconnaissance, I suspected this account might have access to techsrv30, which was another server in the domain I hadn't compromised yet. Using the techservice credentials, I was able to establish a connection to techsrv30, demonstrating how service accounts often become valuable pivoting points because they're configured to access multiple systems for legitimate business purposes, but once compromised, they give attackers an easy path to move laterally without triggering alerts that might come from using stolen admin credentials directly. This is a classic example of how proper credential hygiene and limiting service account privileges is crucial—techservice only needed to do specific tasks, but its access was probably broader than necessary, which I could now exploit to continue my attack chain deeper into the tech.corp domain.
 
-{{< figure src="image 4.png" alt="image 4" >}}
+![image.png](image%204.png)
 
 ```xml
 PS C:\Users\studentuser\Desktop> Copy-Item -Path "C:\Users\studentuser\Desktop\mimikatz.exe" -Destination "C:\Temp\" -ToSession $session
@@ -1019,7 +1019,7 @@ PS C:\Users\studentuser\Desktop> ./Rubeus.exe asktgt /user:techservice /rc4:f8bc
   ASREP (key)              :  F8BC230EE35A2E0ACF1632B4091E10CD
 ```
 
-{{< figure src="image 5.png" alt="image 5" >}}
+![image.png](image%205.png)
 
 ### AdminSRV86
 
@@ -1257,7 +1257,7 @@ Bye!
 [techsrv30.tech.corp]: PS C:\Users\puretech\Documents>
 ```
 
-{{< figure src="image 6.png" alt="image 6" >}}
+![image.png](image%206.png)
 
 ```xml
 PS C:\Users\studentuser\Desktop> Get-DomainGroupMember -Identity "srvusers" -Domain tech.corp
@@ -1410,11 +1410,11 @@ tech\techsrv30$
 
 Attack Chain
 
-{{< figure src="39e88dda-d831-410b-9a64-413c2529f28d.png" alt="39e88dda-d831-410b-9a64-413c2529f28d" >}}
+![image.png](39e88dda-d831-410b-9a64-413c2529f28d.png)
 
 **BloodHound missed this** because the relationship between computer accounts and local admin groups isn't always perfectly captured, especially when it's through group membership rather than direct ACLs.
 
-{{< figure src="image 7.png" alt="image 7" >}}
+![image.png](image%207.png)
 
 ### Tech-DC
 
@@ -2207,7 +2207,7 @@ Once we had techadmin's certificate in PFX format, we used Rubeus to perform PKI
 
 With the techadmin TGT in our session, we were able to establish a PSSession directly to the Domain Controller (tech-dc.tech.corp), which would normally only be accessible to privileged accounts. When we ran `whoami` on the Domain Controller, it confirmed we were operating as `tech\techadmin`, and when we checked the hostname, it showed `tech-dc`, proving we had successfully compromised the most critical server in the domain. This level of access allows us to perform any administrative action in the domain, including creating new Domain Admin accounts, dumping all domain credentials, modifying group policies, accessing any file on any system, and essentially maintaining persistent control over the entire tech.corp Active Directory environment. The ESC3 attack successfully transformed our initial foothold as a machine account (TECHSRV30$) into complete domain dominance through certificate abuse.
 
-{{< figure src="image 8.png" alt="image 8" >}}
+![image.png](image%208.png)
 
 Let’s go through this attack chain, causer enrolled for the FIDO certificate
 
@@ -3045,7 +3045,7 @@ MIINLwIBAzCCDOUGCSqGSIb3D<REDACTED>`
               10 Dir(s)  18,938,339,328 bytes free
 ```
 
-{{< figure src="a82d9a61-2afc-45e4-a9bd-e0e03c5207aa.png" alt="a82d9a61-2afc-45e4-a9bd-e0e03c5207aa" >}}
+![image.png](a82d9a61-2afc-45e4-a9bd-e0e03c5207aa.png)
 
 `*Get Shell*`
 
@@ -3053,7 +3053,7 @@ We bypassed all constraints via certificate-based authentication (`PKINIT`):
 
 `Inter-realm TGT → accessed TechOperations share → retrieved finadmin.pem → PKINIT auth → DA shell`
 
-{{< figure src="image 9.png" alt="image 9" >}}
+![image.png](image%209.png)
 
 `Final Flag!`
 
