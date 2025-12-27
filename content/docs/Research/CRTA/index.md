@@ -1,6 +1,15 @@
-﻿# CRTA
+﻿---
+title: "CRTA"
+description: "$9"
+icon: "article"
+date: "2025-12-28"
+lastmod: "2025-12-28"
+draft: false
+toc: true
+weight: 999
+---
 
-`*Certified Red Team Analyst*`
+`Certified Red Team Analyst`
 
 Well `CWL` have been hyper this season and they even were sponsors of `H7CTF`, I decided to take on couple of their exams to experience the hype myself.
 
@@ -427,3 +436,5 @@ This completed the final objective of the penetration test - locating and exfilt
 **Flag #17:** C:\Users\Administrator\Desktop (Directory containing sensitive XML file)
 
 **Flag #18:** `550-12-8421` (SSN of Christopher A. Whitaker)
+
+Peace!
