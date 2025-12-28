@@ -1,4 +1,4 @@
-﻿---
+---
 title: "CRTA"
 description: "$9"
 icon: "article"
