@@ -8,6 +8,6 @@ repo: "https://github.com/AbuCTF/NodeCrypt"
 image: "/images/projects/nodecrypt.png"
 ---
 
-### NodeCrypt
-
+```
 NodeCrypt provides encryption & decryption APIs for data protection in backend services.
+```

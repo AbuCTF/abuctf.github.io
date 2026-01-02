@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-<head>
-    <meta name="generator" content="Hugo 0.148.1">
-    <meta charset="utf-8" />
+{{ define "head" }}
     <title>Abu's Cyber Chronicle</title>
-    <meta name="robots" content="noindex">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
     <meta name="description" content="Abu's Chronicle of Cyber Exploration - CTF Writeups, Security Research, and Projects" />
     <meta name="keywords" content="Cybersecurity, CTF, Penetration Testing, Security Research, Binary Exploitation" />
     <meta name="author" content="Abu Rahman" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -463,9 +457,9 @@
             }
         }
     </style>
-</head>
+{{ end }}
 
-<body data-theme="dark">
+{{ define "main" }}
     <div class="main-container">
         <!-- Header -->
         <header class="header">
@@ -551,5 +545,4 @@
             });
         }
     </script>
-</body>
-</html>
+{{ end }}

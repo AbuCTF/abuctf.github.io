@@ -8,6 +8,6 @@ repo: "https://github.com/AbuCTF/Hashigo"
 image: "/images/projects/hashigo.png"
 ---
 
-### Hashigo
-
+```
 Hashigo is a flexible CLI tool for cracking hashes using customizable wordlists, permutations, and masks.
+```

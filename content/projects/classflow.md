@@ -8,7 +8,8 @@ repo: "https://github.com/AbuCTF/ClassFlow"
 image: "/images/projects/classflow.png"
 ---
 
-### ClassFlow
 
+```
 ClassFlow streamlines attendance tracking at scale using QR-code scanning.  
-Backend uses **PostgreSQL** with **Java (JDBC)** and supports flexible build systems via Maven and Gradle.
+Backend uses PostgreSQL with Java (JDBC) and supports flexible build systems via Maven and Gradle.
+```

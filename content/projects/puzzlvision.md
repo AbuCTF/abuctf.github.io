@@ -8,6 +8,6 @@ repo: "https://github.com/AbuCTF/PuzzlVision"
 image: "/images/projects/puzzlvision.png"
 ---
 
-### PuzzlVision
-
+```
 PuzzlVision automatically solves visual puzzles using OpenCV pipelines and AI models.
+```

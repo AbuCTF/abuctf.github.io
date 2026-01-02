@@ -8,7 +8,7 @@ repo: "https://github.com/AbuCTF/CryptoShield"
 image: "/images/projects/cryptoshield.png"
 ---
 
-### CryptoShield
-
-CryptoShield manages sensitive data and keys with **end-to-end encryption**.  
+```
+CryptoShield manages sensitive data and keys with end-to-end encryption.  
 Features include secure API endpoints and an administrative dashboard.
+```

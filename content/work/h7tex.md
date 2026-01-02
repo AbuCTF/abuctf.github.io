@@ -1,20 +1,16 @@
 ---
 title: "H7Tex"
-role: "Firmware Engineer"
-company: "H7Tex Robotics"
+role: "Founder"
+company: "H7Tex"
 location: "Chennai, India"
-period: "Jun 2022 – Nov 2023"
-tags: [Firmware, STM32, Embedded, Robotics]
+period: "Dec 2023 – Present"
 draft: false
-description: "Worked on low-level firmware and embedded systems for robotic platforms."
+description: "Upcoming CTF Guild"
 image: "/images/work/h7tex.png"
 ---
 
-### Overview
-
-At H7Tex Robotics, I designed and optimized embedded firmware for robotic control systems.
-
-### Contributions
-
-- Developed low-latency drivers for **STM32 microcontrollers**.
-- Worked on **real-time task scheduling** and safety-critical firmware.
+```
+- multiple award winning ctf team
+- best ranked #4 nationally
+<TODO> 
+```

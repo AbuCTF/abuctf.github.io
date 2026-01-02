@@ -1,6 +1,11 @@
 baseURL = 'https://www.abu.rocks/'
 languageCode = 'en-us'
 title = 'Abu'
+
+canonifyURLs = true
+enableRobotsTXT = true
+enableGitInfo = true
+
 contentDir = 'content'
 enableEmoji = true
 

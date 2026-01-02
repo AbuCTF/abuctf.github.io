@@ -1,20 +1,11 @@
 ---
 title: "Inforill"
-role: "Security Research Intern"
-company: "Inforill"
-location: "Remote"
-period: "Jan 2023 – May 2023"
-tags: [Cybersecurity, Research, Penetration Testing]
 draft: false
-description: "Conducted security assessments and contributed to research papers."
-image: "/images/work/inforill.png"
+description: "ML/RL Models & Rive Animations"
+
 ---
 
-### Overview
-
-Contributed to security research projects focusing on application security and CTF challenges.
-
-### Key Contributions
-
-- Performed vulnerability assessments.
-- Helped in drafting **security whitepapers** and technical documentation.
+```
+- created RL models for atari games
+- tinkered with rive animations and state engine
+```

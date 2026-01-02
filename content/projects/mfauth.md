@@ -8,6 +8,6 @@ repo: "https://github.com/AbuCTF/MFAuth"
 image: "/images/projects/mfauth.png"
 ---
 
-### MFAuth
-
-MFAuth implements **Time-based OTP (TOTP)** authentication for adding a second factor of verification in web applications.
+```
+MFAuth implements Time-based OTP (TOTP) authentication for adding a second factor of verification in web applications.
+```

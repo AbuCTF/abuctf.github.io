@@ -9,6 +9,6 @@ liveDemo: "https://locale.abuctf.dev"
 image: "/images/projects/localelookup.png"
 ---
 
-### LocaleLookup
-
+```
 LocaleLookup allows users to search for local businesses in real-time using interactive geolocation filters and maps.
+```
